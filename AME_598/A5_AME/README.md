@@ -22,14 +22,14 @@ This project sets up a weather station using an ESP32, an EC2 server, and a web 
   $ sudo service mongod start
   $ sudo service mongod restart
 5. **Clone Repo and Setup Server**: Clone the class repo, navigate to the server directory, and start the server.
-$ git clone https://github.com/tejaswigowda/ame498-598Fall2023.git
-$ cd ame498-598Fall2023/Weatherstation/server
-$ sudo nano server.js # Change port to 8080/1234
-$ node server.js
+   $ git clone https://github.com/tejaswigowda/ame498-598Fall2023.git
+   $ cd ame498-598Fall2023/Weatherstation/server
+   $ sudo nano server.js # Change port to 8080/1234
+   $ node server.js
 6. **Configure Arduino**: Update the Arduino code with your network details and upload it to the ESP32.
 7. **Restart Services**: Restart MongoDB and the Node.js server.
-$ sudo service mongod restart
-$ node server.js
+   $ sudo service mongod restart
+   $ node server.js
 Access Web Interface: Open http://[your-ec2-ip-address]:[port number] in a browser.
 
 
