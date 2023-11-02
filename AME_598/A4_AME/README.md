@@ -10,7 +10,8 @@ Upload the Arduino code (located in the code folder) to your ESP32.
 Access the web interface by navigating to http://[your-ec2-ip-address]:[port number] in a web browser.
 
 Tutorial
-A detailed step-by-step guide is provided in the tutorial.html file.
+A detailed step-by-step guide is provided in the [Tutorial](https://airenp.github.io/AME494598Fall2023/AME_598/A4_AME/code/tutorial.html)
+
 
 Screenshots
 Screenshots of the setup and running application are available in the images folder.
