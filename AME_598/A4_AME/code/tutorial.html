@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4 Tutorial</title>
+</head>
+<body>
+    <h1>Assignment 4 Tutorial</h1>
+    <div id="tutorial">
+        <h2>Step 1: Start AWS Lab</h2>
+        <p>Launch EC2 Instance:</p>
+        <ul>
+            <li>Select server name</li>
+            <li>Select OS - ubuntu 20.04</li>
+            <li>Key pair --> proceed without key pair</li>
+            <li>Configure storage --> 1 * 28</li>
+            <li>Launch instance</li>
+        </ul>
+        
+        <h2>Step 2: Edit Inbound Security Rules</h2>
+        <p>After instance is launched, edit inbound security rules:</p>
+        <ul>
+            <li>Add TCP port no: 27017 --> Choose IP address as my own IP</li>
+            <li>Add TCP port no: 8080 --> Choose IP address as 0.0.0.0/0</li>
+            <li>Add TCP port no: 1234 --> Choose IP address as 0.0.0.0/0</li>
+            <li>Add HTTP --> Choose IP address as 0.0.0.0/0</li>
+        </ul>
+        <img src="images/security_inbound_rules.png" alt="Inbound Security Rules" width="500">
+         
+        <h2>Step 3: Connect to Instance and Launch Terminal</h2>
+        <p>Connect to your instance and launch the terminal.</p>
+        
+        <h2>Step 4: Install Node/Mongo on EC2</h2>
+        <p>Install Node.js and MongoDB on your EC2 instance:</p>
+        <pre>
+            <code>
+$ curl -s https://gist.githubusercontent.com/tejaswigowda/f289e9bff13d152876e8d4b3281142f8/raw/df37df2e16a3166e686357a045751a7c18bbeebe/installNodeMongoUbuntu16.04.sh | bash
+$ sudo nano /etc/mongod.conf # change the bind IP to 0.0.0.0, Port should be 27017
+$ sudo service mongod start
+$ sudo service mongod restart
+            </code>
+        </pre>
+        
+        <h2>Step 5: Clone Repository and Set Up Server</h2>
+        <p>Clone the class repository and set up the server:</p>
+        <pre>
+            <code>
+$ git clone https://github.com/tejaswigowda/ame498-598Fall2023.git
+$ cd ame498-598Fall2023/watchSensors/captureDataServer-TempHum/
+$ sudo nano server.js # Change port to 8080/1234
+$ node server.js
+            </code>
+        </pre>
+        
+        <h2>Step 6: Configure Arduino and Hardware</h2>
+        <p>In the Arduino code, change the static IP (SSID) and password. Use port 1234 or 8080. Connect the hardware and upload the Arduino code.</p>
+         
+        <h2>Step 7: Restart Server and MongoDB</h2>
+        <p>Restart the server and MongoDB, then check the readings in MongoDB Compass:</p>
+        <img src="images/mongodb_compass.png" alt="MongoDB Compass" width="500">
+  
+
+	<h2>Step 8: Access the Web Interface</h2>
+        <p>Open the public IP in a web browser:</p>
+        <pre><code>http://[publicIP:portnumber]</code></pre>
+        <img src="images/ec2_web_interface.png" alt="EC2 Setup" width="500">
+        <pre>
+            <code>
+$ sudo service mongod restart
+$ node server.js
+            </code>
+        </pre>	
+    </div>
+</body>
+</html>
